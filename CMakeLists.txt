@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+set (CMAKE_CXX_STANDARD 11)
+project(splines)
+find_package(PCL 1.7 REQUIRED)
+find_package(VTK REQUIRED)
+include(${VTK_USE_FILE})
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+add_executable (splines splines.cpp )
+target_link_libraries (splines ${PCL_LIBRARIES} )
